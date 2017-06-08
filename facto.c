@@ -9,30 +9,28 @@ int ft_facto_boucle(int nombre)
 		resultat *= nombre-1;
 		nombre--;
 	}
-	printf("resultat boucle : %d\n", resultat);
 	return resultat;
 }
 
 
-int ft_facto_recursivite(int resultat ,int nombre) 
-// Mettre 1 dans resultat
+int ft_facto_recursivite(int nombre)
 {
-	if (nombre != 1)
-	{
-		resultat *=  nombre;
-		ft_facto_recursivite(resultat, nombre-1);
-	}
-
-	else
-	{
-		printf("resultat recursivité: %d\n", resultat);	
-	}
-	return resultat;
+    int resultat = 0;
+    if (nombre == 1)
+    {
+        resultat = 1;
+        return resultat;
+    }
+    else
+    {
+        resultat = nombre * ft_facto_recursivite(nombre - 1); 
+        return resultat;
+    }
 }
 
 int main (void)
 {
-	ft_facto_boucle(5);
-	ft_facto_recursivite(1, 5);
+	printf("resultat boucle : %d\n", ft_facto_boucle(6));
+	printf("resultat recursivité: %d\n", ft_facto_recursivite(6));
 
 }
